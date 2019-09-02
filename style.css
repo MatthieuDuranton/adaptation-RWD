@@ -25,20 +25,29 @@
 }
 
 /* Eléments principaux de la page */
-@media only all and (min-width: 800px) {
     body
     {
         background: url('images/fond_jaune.png');
         font-family: 'Trebuchet MS', Arial, sans-serif;
         color: #181818;
     }
-
-    #bloc_page
-    {
-        width: 900px;
-        margin: auto;
+    
+    @media only all 
+        and (min-width: 450px)
+        and (max-width: 801px) {
+        #bloc_page /*header*/
+        {
+            width: 450px;
+            margin: auto;
+        }
     }
-
+    @media only all and (max-width: 450px) {
+        #bloc_page /*header*/
+        {
+            width: 350px;
+            margin: auto;
+        }
+    }
     section h1, footer h1, nav a
     {
         font-family: Dayrom, serif;
@@ -47,16 +56,21 @@
     }
 
     /* Header */
-
-    header
-    {
-        background: url('images/separateur.png') repeat-x bottom;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
+    
+    @media only all
+        and (max-width: 450px) {
+        header
+        {
+            background: url('images/separateur.png') repeat-x bottom;
+            display: flex;
+            flex-direction: column; /*pour mettre en colonne le header*/
+            justify-content: space-between;
+            align-items: center; /*pour centrer le header*/
+            width: 100%;
+            margin: auto;
+        }
     }
-
-    #titre_principal
+    #titre_principal/*logo + Zozor + H2*/
     {
         display: flex;
         flex-direction: column;
@@ -92,7 +106,8 @@
     }
 
     /* Navigation */
-
+@media only all
+    and (min-width: 450px) {
     nav ul
     {
         list-style-type: none;
@@ -117,18 +132,49 @@
         color: #760001;
         border-bottom: 3px solid #760001;
     }
+}
+@media only all
+    and (max-width: 450px) {
+    nav ul
+    {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+    }
 
+    nav li
+    {
+        margin-right: 2%;
+    }
+
+    nav a
+    {
+        font-size: 2em;
+        color: #181818;
+        padding-bottom: 2%;
+        text-decoration: none;
+    }
+
+    nav a:hover
+    {
+        color: #760001;
+        border-bottom: 2% solid #760001;
+    }
+}
     /* Bannière */
-
+ 
     #banniere_image
     {
         margin-top: 15px;
-        height: 200px;
+        height: 300px;
         border-radius: 5px;
         background: url('images/sanfrancisco.jpg') no-repeat;
         position: relative;
         box-shadow: 0px 4px 4px #1c1a19;
         margin-bottom: 25px;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
     #banniere_description
@@ -137,21 +183,22 @@
         bottom: 0;
         border-radius: 0px 0px 5px 5px;
         width: 99.5%;
-        height: 33px;
+        height: 50px;
         padding-top: 15px;
         padding-left: 4px;
         background-color: rgba(24,24,24,0.8);
         color: white;
-        font-size: 0.8em;
-        
+        font-size: 1,7em;
+        text-align: center;
     }
 
     .bouton_rouge
     {
         height: 25px;
         position: absolute;
-        right: 5px;
-        bottom: 5px;
+        right: 1%;
+        bottom: 0px;
+        transform: translate (50%);
         background: url('images/fond_degraderouge.png') repeat-x;
         border: 1px solid #760001;
         border-radius: 5px;
@@ -174,7 +221,15 @@
         display: flex;
         margin-bottom: 20px;
     }
-
+@media only all
+    and (max-width: 450px) {
+        section
+    {
+        display: flex;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+}
     article, aside
     {
         text-align: justify;
@@ -239,31 +294,63 @@
         background:  url('images/ico_top.png') no-repeat top center, url('images/separateur.png') repeat-x top, url('images/ombre.png') repeat-x top;
         padding-top: 25px;
     }
-
+@media only all
+    and (max-width: 450px) {
+        footer
+    {
+        display: flex;
+        flex-direction: column;
+        background:  url('images/ico_top.png') no-repeat top center, url('images/separateur.png') repeat-x top, url('images/ombre.png') repeat-x top;
+        padding-top: 25px;
+        justify-content: center;
+    }
+    }
     footer p, footer ul
     {
-        font-size: 0.8em;
+        font-size: 1em;
     }
 
     footer h1
     {
         font-size: 1.1em;
     }
-
+@media only all
+    and (max-width: 450px) {
+    footer h1
+    {
+        font-size: 1.1em;
+        text-align: center;
+    }
+    }
 
     #tweet
     {
-        width: 28%;
+        width: 100%;
     }
-
+@media only all
+    and (max-width: 450px) {
+    #tweet
+    {
+        width: 100%;
+        text-align: center;
+    }
+    }
     #mes_photos
     {
-        width: 35%;
+        width: 100%;
+    }
+@media only all
+    and (max-width: 450px) {
+        #mes_photos
+        {
+            width: 100%;
+            text-align: center;
+        } 
     }
 
     #mes_amis
     {
-        width: 31%;
+        width: 100%;
     }
 
     #mes_photos img
@@ -273,12 +360,21 @@
     }
 
     #listes_amis
-    {
-        display: flex;
+    {        
         justify-content: space-between;
         margin-top: 0;
     }
-
+@media only all
+    and (max-width: 450px) {
+    #listes_amis
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 0;
+        text-align: center;
+    }
+}
     #mes_amis ul
     {
         list-style-image: url('images/ico_liensexterne.png');
@@ -290,4 +386,3 @@
         text-decoration: none;
         color: #760001;
     }
-}
